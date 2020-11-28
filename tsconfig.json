@@ -1,0 +1,40 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "target": "es2017",
+    "noImplicitAny": true,
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "outDir": "dist",
+    "baseUrl": ".",
+    "paths": {
+      "@root/*": [ "src/*" ],
+      "@root": [ "src" ],
+      "@core/*": [ "src/core/*" ],
+      "@core": [ "src/core" ],
+      "@config/*": [ "src/config/*" ],
+      "@config": [ "src/config" ],
+      "@documentation/*": [ "src/documentation/*" ],
+      "@documentation": [ "src/documentation" ],
+      "@infra/*": [ "src/infrastructure/*" ],
+      "@infra": [ "src/infrastructure" ],
+      "@modules/*": [ "src/modules/*" ],
+      "@modules": [ "src/modules" ],
+      "@services/*": [ "src/services/*" ],
+      "@services": [ "src/services" ],
+
+      "@public/*": [ "src/modules/public/*" ],
+      "@public": [ "src/modules/public" ],
+    },
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "skipLibCheck": true
+  },
+  "include": [
+    "src/**/*"
+  ]
+}
