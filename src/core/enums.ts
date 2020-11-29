@@ -1,7 +1,7 @@
 export const getEnumKeys = (E: Record<string, string>): string[] =>
-  Object.keys(E)
+  Object.keys(E);
 export const getEnumValues = (E: Record<string, string>): string[] =>
-  getEnumKeys(E).map((k) => E[k])
+  getEnumKeys(E).map((k) => E[k]);
 
 export enum Errors {
   CREDENTIALS_INCORRECT = 'CREDENTIALS_INCORRECT',

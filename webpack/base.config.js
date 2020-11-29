@@ -1,19 +1,19 @@
-const path = require('path')
-const fs = require('fs')
-const gracefulFs = require('graceful-fs')
-gracefulFs.gracefulify(fs)
-const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin')
-const { BannerPlugin } = require('webpack')
-const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
+const path = require('path');
+const fs = require('fs');
+const gracefulFs = require('graceful-fs');
+gracefulFs.gracefulify(fs);
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
+const { BannerPlugin } = require('webpack');
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 
-const nodeModules = {}
+const nodeModules = {};
 fs.readdirSync('node_modules')
   .filter(function (x) {
-    return ['.bin'].indexOf(x) === -1
+    return ['.bin'].indexOf(x) === -1;
   })
   .forEach(function (mod) {
-    nodeModules[mod] = 'commonjs2 ' + mod
-  })
+    nodeModules[mod] = 'commonjs2 ' + mod;
+  });
 
 module.exports = {
   mode: 'development',
@@ -62,4 +62,4 @@ module.exports = {
       entryOnly: false,
     }),
   ],
-}
+};

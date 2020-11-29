@@ -1,13 +1,13 @@
-import { from } from 'env-var'
-import { AppLogger } from '@config/ApplicationLogger'
+import { from } from 'env-var';
+import { AppLogger } from '@config/ApplicationLogger';
 
 const logger = (varname: string, str: string): void =>
-  AppLogger.log(`${varname}: ${str}`)
+  AppLogger.log(`${varname}: ${str}`);
 
-const env = from(process.env, {}, logger)
+const env = from(process.env, {}, logger);
 
-export const PORT: number = env.get('PORT').default(8082).asIntPositive()
+export const PORT: number = env.get('PORT').default(8082).asIntPositive();
 export const NODE_ENV: 'development' | 'production' = env
   .get('NODE_ENV')
   .default('development')
-  .asEnum(['development', 'production'])
+  .asEnum(['development', 'production']);

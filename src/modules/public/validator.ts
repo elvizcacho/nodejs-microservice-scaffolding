@@ -1,5 +1,5 @@
-import { check } from 'express-validator'
-import { errorMsg } from '@core/validator'
+import { check } from 'express-validator';
+import { errorMsg } from '@core/validator';
 
 export default {
   login: [
@@ -7,4 +7,4 @@ export default {
     check('password').isLength({ min: 5 }),
     errorMsg,
   ],
-}
+};

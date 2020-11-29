@@ -30,7 +30,11 @@
     "@types/node": "^14.14.10",
     "@types/supertest": "^2.0.10",
     "@types/swagger-ui-express": "^4.1.2",
+    "@typescript-eslint/eslint-plugin": "^4.8.2",
+    "@typescript-eslint/parser": "^4.8.2",
     "eslint": "^7.14.0",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-prettier": "^3.1.4",
     "fork-ts-checker-webpack-plugin": "^6.0.4",
     "graceful-fs": "^4.2.4",
     "gulp": "^4.0.2",
@@ -67,5 +71,15 @@
       "npm run lint",
       "npm run prettier"
     ]
+  },
+  "jest-junit": {
+    "suiteName": "jest tests",
+    "outputDirectory": ".",
+    "outputName": "artifacts/test-results.xml",
+    "uniqueOutputName": "false",
+    "classNameTemplate": "{classname}-{title}",
+    "titleTemplate": "{classname}-{title}",
+    "ancestorSeparator": " › ",
+    "usePathForSuiteName": "true"
   }
 }

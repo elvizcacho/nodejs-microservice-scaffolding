@@ -1,7 +1,7 @@
-import { Response, NextFunction } from 'express'
-import { ValidationError, validationResult } from 'express-validator'
-import { ErrorResponse } from '@core/Error'
-import { RequestWithToken } from '@core/middlewares'
+import { Response, NextFunction } from 'express';
+import { ValidationError, validationResult } from 'express-validator';
+import { ErrorResponse } from '@core/Error';
+import { RequestWithToken } from '@core/middlewares';
 
 const sanitizeError = (error: ValidationError) =>
   new ErrorResponse(
@@ -9,17 +9,17 @@ const sanitizeError = (error: ValidationError) =>
     error.msg || '',
     error.param || '',
     error.location || '',
-  ).toJSON()
+  ).toJSON();
 
 export const errorMsg = (
   req: RequestWithToken,
   res: Response,
   next: NextFunction,
 ): void => {
-  const errors = validationResult(req)
+  const errors = validationResult(req);
   if (!errors.isEmpty()) {
-    res.status(400).json({ errors: errors.array().map(sanitizeError) })
+    res.status(400).json({ errors: errors.array().map(sanitizeError) });
   } else {
-    next()
+    next();
   }
-}
+};
