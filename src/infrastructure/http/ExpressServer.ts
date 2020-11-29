@@ -1,6 +1,6 @@
 import express, { Express } from 'express';
 import swaggerUI from 'swagger-ui-express';
-import { NODE_ENV, PORT } from '@config/config';
+import { PORT } from '@config/config';
 import modules, { Module } from '@modules';
 import http from 'http';
 import { HTTPLoggerConfig } from '@config/ApplicationLogger';
@@ -15,16 +15,14 @@ class ExpressServer {
   private readonly express: Express;
   private readonly port: number;
 
-  public http!: http.Server;
+  public http: http.Server;
 
   private connections: NodeJS.Socket[] = [];
 
   public constructor() {
     this.port = PORT;
     this.logger = new ApplicationLogger(HTTPLoggerConfig);
-    this.reqLogger = new RequestLogger({
-      enabled: NODE_ENV === 'development',
-    });
+    this.reqLogger = new RequestLogger();
     this.express = express();
     this.express.disable('x-powered-by');
     this.express.use(this.reqLogger.apply());

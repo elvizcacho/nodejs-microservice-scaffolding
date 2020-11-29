@@ -29,7 +29,7 @@ RUN addgroup -S juapp-service-group
 RUN adduser -S -G juapp-service-group juapp-service-user
 RUN chown -R juapp-service-user:juapp-service-group /opt/juapp-freelancer-service
 
-EXPOSE 8082
+EXPOSE 8080
 
 USER juapp-service-user
 
