@@ -13,7 +13,6 @@ services:
       dockerfile: ./cluster/dev.dockerfile
     volumes:
       - freelancer_service_volume:/freelancer_service_volume
-      - ./.npmrc:/adapter_service_volume/.npmrc
     ports:
       - 9090:8080
     networks:

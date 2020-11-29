@@ -3,11 +3,11 @@ import { NextFunction, Response } from 'express';
 
 describe('middlewares', () => {
   it('should get token from auth header', (done) => {
-    const req = {
+    const req: Partial<RequestWithToken> = {
       headers: {
         authorization: 'Bearer abc',
       },
-    } as RequestWithToken;
+    };
 
     const next: NextFunction = () => {
       const { token } = req;
@@ -15,6 +15,6 @@ describe('middlewares', () => {
       done();
     };
 
-    getToken(req, {} as Response, next);
+    getToken(req as RequestWithToken, {} as Response, next);
   });
 });

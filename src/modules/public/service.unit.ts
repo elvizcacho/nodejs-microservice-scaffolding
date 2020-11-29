@@ -1,3 +1,5 @@
 describe('File Service', () => {
-  console.log('TEST');
+  it('test', () => {
+    console.log('TEST');
+  });
 });

@@ -1,6 +1,14 @@
+#IDEs
 .idea
+
+#System files
+.DS_Store
+
+
 node_modules
 build
 dist
 artifacts
+coverage
+.npmrc
 
