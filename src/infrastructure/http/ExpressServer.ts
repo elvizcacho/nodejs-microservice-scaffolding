@@ -26,10 +26,6 @@ class ExpressServer {
       enabled: NODE_ENV === 'development',
     })
     this.express = express()
-    this.express.use((req, res, next) => {
-      console.log(req, res)
-      next()
-    })
     this.express.disable('x-powered-by')
     this.express.use(this.reqLogger.apply())
   }
@@ -40,7 +36,6 @@ class ExpressServer {
     })
 
     this.http.on('connection', (listener) => {
-      console.log('WHATTTT!!')
       this.connections.push(listener)
       listener.on(
         'close',

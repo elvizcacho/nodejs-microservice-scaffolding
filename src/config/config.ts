@@ -6,7 +6,7 @@ const logger = (varname: string, str: string): void =>
 
 const env = from(process.env, {}, logger)
 
-export const PORT: number = env.get('PORT').default(6000).asIntPositive()
+export const PORT: number = env.get('PORT').default(8082).asIntPositive()
 export const NODE_ENV: 'development' | 'production' = env
   .get('NODE_ENV')
   .default('development')
