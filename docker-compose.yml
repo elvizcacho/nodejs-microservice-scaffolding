@@ -5,34 +5,61 @@ volumes:
 
 services:
 
-  freelancer-service:
-    working_dir: /freelancer_service_volume
-    entrypoint: /freelancer_service_volume/cluster/dev-entrypoint.sh
-    build:
-      context: .
-      dockerfile: ./cluster/dev.dockerfile
-    volumes:
-      - freelancer_service_volume:/freelancer_service_volume
+  postgres:
+    image: postgres:alpine
+    restart: always
     ports:
-      - 9090:8080
+      - 5432:5432
+    environment:
+      POSTGRES_PASSWORD: adminpassword
+      PGDATA: /var/lib/postgresql/data/pgdata
+    volumes:
+      - ./db/pgdata:/var/lib/postgresql/data/pgdata
+      - ./db/init-scripts:/docker-entrypoint-initdb.d
     networks:
       - juapp_dev
-    environment:
-      NODE_ENV: development
-      PORT: 8080
 
-x-mutagen:
-  sync:
-    defaults:
-      ignore:
-        vcs: true
-    freelancer-service:
-      alpha: "."
-      beta: "volume://freelancer_service_volume"
-      mode: "two-way-resolved"
-      ignore:
-        paths:
-          - "node_modules"
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 9091:8080
+    networks:
+      - juapp_dev
+
+#  freelancer-service:
+#    working_dir: /freelancer_service_volume
+#    entrypoint: /freelancer_service_volume/cluster/dev-entrypoint.sh
+#    build:
+#      context: .
+#      dockerfile: ./cluster/dev.dockerfile
+#    volumes:
+#      - freelancer_service_volume:/freelancer_service_volume
+#    ports:
+#      - 9090:8080
+#    networks:
+#      - juapp_dev
+#    environment:
+#      NODE_ENV: development
+#      PORT: 8080
+#      PG_HOST: postgres
+#      PG_USER: app
+#      PG_PASSWORD: password
+#      PG_DB: freelancer_service
+#      PG_DEBUG: "true"
+#
+#x-mutagen:
+#  sync:
+#    defaults:
+#      ignore:
+#        vcs: true
+#    freelancer-service:
+#      alpha: "."
+#      beta: "volume://freelancer_service_volume"
+#      mode: "two-way-resolved"
+#      ignore:
+#        paths:
+#          - "node_modules"
 
 networks:
   juapp_dev:

@@ -74,6 +74,24 @@ components:
         token:
           type: string
 
+    ErrorResponse:
+      type: object
+      properties:
+        errors:
+          type: array
+          items:
+            type: object
+            properties:
+              value:
+                type: string
+              msg:
+                type: string
+              param:
+                type: string
+              location:
+                type: string
+                enum: [ body, header, params ]
+
 paths:
   /login:
     post:
