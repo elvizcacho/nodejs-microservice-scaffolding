@@ -3,7 +3,7 @@ interface HomeResponse {
 }
 
 class Service {
-  async home(): Promise<HomeResponse> {
+  home(): Promise<HomeResponse> {
     return Promise.resolve({ ok: 'ok' });
   }
 }

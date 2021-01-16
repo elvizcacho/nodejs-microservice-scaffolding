@@ -1,0 +1,43 @@
+version: 2.1
+
+orbs:
+  heroku: circleci/heroku@1.2.4
+
+workflows:
+  heroku_deploy:
+    jobs:
+      - tests
+      - deploy:
+          filters:
+            branches:
+              only: master
+jobs:
+  tests:
+    working_directory: ~/app
+    docker:
+      - image: mhart/alpine-node:14.15.4
+    steps:
+      - checkout
+      - run:
+          name: npm install
+          command: npm install
+      - run:
+          name: npm run build
+          command: npm run build
+      - run:
+          name: npm run test:ci
+          command: npm run test:ci
+      - store_artifacts:
+          path: artifacts/test-results.xml
+          prefix: tests
+      - store_artifacts:
+          path: coverage
+          prefix: coverage
+      - store_test_results:
+          path: artifacts
+  deploy:
+    executor: heroku/default
+    steps:
+      - checkout
+      - heroku/install
+      - heroku/deploy-via-git

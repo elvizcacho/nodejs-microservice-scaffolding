@@ -1,8 +1,12 @@
 import express from 'express';
+import service from '@public/service';
+import { withErrorHandling } from '@core/decorators';
 
 class Controller {
-  home(_req: express.Request, res: express.Response) {
-    res.send('OK');
+  @withErrorHandling()
+  async home(_req: express.Request, res: express.Response) {
+    const response = await service.home();
+    res.send(response);
   }
 }
 
