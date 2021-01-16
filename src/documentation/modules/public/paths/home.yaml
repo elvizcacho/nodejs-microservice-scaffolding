@@ -1,18 +1,14 @@
-summary: Get user
-operationId: getUser
-security:
-  - ApiKeyAuth: [ ]
+summary: Home
+operationId: home
 responses:
   200:
-    description: User was successfully fetched
+    description: Service is up and running
     content:
       application/json:
         schema:
-          $ref: '../schemas/GetUserResponse.yaml'
+          $ref: '../schemas/HomeResponse.yaml'
   400:
     $ref: '../../../common/responses/400.yaml'
-  401:
-    $ref: '../../../common/responses/401.yaml'
   404:
     $ref: '../../../common/responses/404.yaml'
   503:

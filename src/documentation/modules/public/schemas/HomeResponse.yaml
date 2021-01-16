@@ -1,6 +1,6 @@
 type: object
 properties:
-  id:
+  ok:
     type: string
-  email:
-    type: string
+    example: ok
+

@@ -1,8 +1,5 @@
 version: '3.8'
 
-volumes:
-  freelancer_service_volume:
-
 services:
 
   postgres:
@@ -17,7 +14,7 @@ services:
       - ./db/pgdata:/var/lib/postgresql/data/pgdata
       - ./db/init-scripts:/docker-entrypoint-initdb.d
     networks:
-      - juapp_dev
+      - juapp_freelancer_api_network
 
   adminer:
     image: adminer
@@ -25,43 +22,9 @@ services:
     ports:
       - 9091:8080
     networks:
-      - juapp_dev
-
-#  freelancer-service:
-#    working_dir: /freelancer_service_volume
-#    entrypoint: /freelancer_service_volume/cluster/dev-entrypoint.sh
-#    build:
-#      context: .
-#      dockerfile: ./cluster/dev.dockerfile
-#    volumes:
-#      - freelancer_service_volume:/freelancer_service_volume
-#    ports:
-#      - 9090:8080
-#    networks:
-#      - juapp_dev
-#    environment:
-#      NODE_ENV: development
-#      PORT: 8080
-#      PG_HOST: postgres
-#      PG_USER: app
-#      PG_PASSWORD: password
-#      PG_DB: freelancer_service
-#      PG_DEBUG: "true"
-#
-#x-mutagen:
-#  sync:
-#    defaults:
-#      ignore:
-#        vcs: true
-#    freelancer-service:
-#      alpha: "."
-#      beta: "volume://freelancer_service_volume"
-#      mode: "two-way-resolved"
-#      ignore:
-#        paths:
-#          - "node_modules"
+      - juapp_freelancer_api_network
 
 networks:
-  juapp_dev:
+  juapp_freelancer_api_network:
     external:
-      name: juapp_dev
+      name: juapp_freelancer_api_network

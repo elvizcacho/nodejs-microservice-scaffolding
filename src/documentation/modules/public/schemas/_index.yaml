@@ -1,4 +1,2 @@
-LoginRequest:
-  $ref: './LoginRequest.yaml'
-LoginResponse:
-  $ref: './LoginResponse.yaml'
+HomeResponse:
+  $ref: './HomeResponse.yaml'

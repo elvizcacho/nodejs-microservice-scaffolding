@@ -1,11 +1,10 @@
-interface LoginResponse {
-  token: string;
+interface HomeResponse {
+  ok: string;
 }
 
 class Service {
-  async loginUser(email: string, password: string): Promise<LoginResponse> {
-    console.log(email, password);
-    return Promise.resolve({ token: 'abc' });
+  async home(): Promise<HomeResponse> {
+    return Promise.resolve({ ok: 'ok' });
   }
 }
 
