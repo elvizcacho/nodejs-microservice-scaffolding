@@ -1,0 +1,8 @@
+type: object
+properties:
+  id:
+    type: string
+    example: a3bd01ff-d852-42f9-8087-771c87376044
+  email:
+    type: string
+    example: elvizcacho@gmail.com

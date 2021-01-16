@@ -1,0 +1,2 @@
+GetUserResponse:
+  $ref: "./GetUserResponse.yaml"

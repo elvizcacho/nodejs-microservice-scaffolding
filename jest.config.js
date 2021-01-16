@@ -1,4 +1,4 @@
-/* eslint-disable */
+/* eslint-disable @typescript-eslint/no-var-requires */
 const { pathsToModuleNameMapper } = require('ts-jest/utils');
 const { compilerOptions } = require('./tsconfig.json');
 
@@ -14,6 +14,6 @@ module.exports = {
     prefix: '<rootDir>',
   }),
   transform: {
-    'API-1\\.0\\.0-swagger\\.yaml$': '<rootDir>/__mocks__/docsTransformer.js',
+    'openapi.yaml$': '<rootDir>/__mocks__/docsTransformer.js',
   },
 };

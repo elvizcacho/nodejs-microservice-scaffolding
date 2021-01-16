@@ -1,0 +1,22 @@
+summary: Get user
+operationId: getUser
+security:
+  - ApiKeyAuth: [ ]
+responses:
+  200:
+    description: User was successfully fetched
+    content:
+      application/json:
+        schema:
+          $ref: '../schemas/GetUserResponse.yaml'
+  400:
+    $ref: '../../../common/responses/400.yaml'
+  401:
+    $ref: '../../../common/responses/401.yaml'
+  404:
+    $ref: '../../../common/responses/404.yaml'
+  503:
+    $ref: '../../../common/responses/503.yaml'
+  500:
+    $ref: '../../../common/responses/500.yaml'
+

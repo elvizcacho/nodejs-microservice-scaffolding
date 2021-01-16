@@ -1,10 +1,4 @@
-import { from } from 'env-var';
-import { AppLogger } from '@config/ApplicationLogger';
-
-const logger = (varname: string, str: string): void =>
-  AppLogger.log(`${varname}: ${str}`);
-
-const env = from(process.env, {}, logger);
+import env from 'env-var';
 
 export const NODE_ENV: 'development' | 'production' = env
   .get('NODE_ENV')

@@ -1,0 +1,4 @@
+LoginRequest:
+  $ref: './LoginRequest.yaml'
+LoginResponse:
+  $ref: './LoginResponse.yaml'

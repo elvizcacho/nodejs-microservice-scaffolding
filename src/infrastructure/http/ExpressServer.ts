@@ -4,7 +4,7 @@ import { PORT } from '@config/config';
 import modules, { Module } from '@modules';
 import http from 'http';
 import { HTTPLoggerConfig } from '@config/ApplicationLogger';
-import documentation from '@documentation/API-1.0.0-swagger.yaml';
+import documentation from '@documentation/build/openapi.yaml';
 import { ApplicationLogger } from '@core/logger';
 import { RequestLogger } from '@config/RequestLogger';
 

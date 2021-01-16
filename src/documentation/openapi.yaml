@@ -1,0 +1,30 @@
+openapi: 3.0.0
+info:
+  version: 1.0.1
+  title: Auth service API
+  description: API to consume JUAPP's auth services
+servers:
+  - description: Prod server
+    url: https://auth.juanvizcaino.com/v1.0.0/
+  - description: Local server
+    url: http://0.0.0.0:8082/v1.0.0/
+components:
+  securitySchemes:
+    ApiKeyAuth:
+      type: apiKey
+      in: header
+      name: x-juaapp-jwt
+  parameters:
+    - $ref: "./modules/public/parameters/_index.yaml"
+    - $ref: "./modules/users/parameters/_index.yaml"
+  schemas:
+    - $ref: "./common/schemas/_index.yaml"
+    - $ref: "./modules/public/schemas/_index.yaml"
+    - $ref: "./modules/users/schemas/_index.yaml"
+  responses:
+    - $ref: "./common/responses/_index.yaml"
+    - $ref: "./modules/public/responses/_index.yaml"
+    - $ref: "./modules/users/responses/_index.yaml"
+paths:
+  - $ref: "./modules/public/paths/_index.yaml"
+  - $ref: "./modules/users/paths/_index.yaml"
